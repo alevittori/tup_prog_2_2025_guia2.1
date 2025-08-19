@@ -17,6 +17,12 @@ namespace Ejercicio1.Models
 
         public RegistroVehiculo RegistrarVechiculo(Persona elPropietario)
         {
+            CantidadRegistros++;
+            
+            //tambien puedo generar la serie con el contador de registro, 
+            //nuevaSerie = int.Parse(CantidadRegistros.ToString("D9"));
+
+
             this.nuevaSerie = GenerarSerie();
 
             this.nuevaPatente = GenerarPatente();
@@ -43,6 +49,31 @@ namespace Ejercicio1.Models
             }
             
 
+           
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            nuevaSerie = 
+
+
             return patente;
         }
         int GenerarSerie()
@@ -57,5 +88,16 @@ namespace Ejercicio1.Models
 
             return int.Parse(serie);
         }
+
+        //ver como devolver el registro del arraylist
+        /*public RegistroVehiculo VerRegistro(int indice)
+        {
+            if (indice >= 0 && indice < registros.Count)
+            {
+                RegistroVehiculo encontrado = RegistroVehiculo(registros.IndexOf(indice));
+            }
+            return RegistroVehiculo(registros[indice]);
+        }
+        */
     }
 }
