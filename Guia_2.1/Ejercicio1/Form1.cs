@@ -30,6 +30,11 @@ namespace Ejercicio1
 
         private void btnCargarPersona_Click(object sender, EventArgs e)
         {
+
+            //AGREGAR UN CONTROL PARA QUE NO SE REPITAN LOS DNI 
+
+
+
             FDatosPersona VDatosPersona = new FDatosPersona();
             string dni;
             string nombre;
@@ -58,7 +63,15 @@ namespace Ejercicio1
 
             if(respuesta == DialogResult.Yes)
             {
-                departamento.
+                //departamento.
+            }
+        }
+
+        private void btnListarRegistros_Click(object sender, EventArgs e)
+        {
+            for(int i = 0; i< departamento.CantidadRegistros; i++)
+            {
+                lBoxListado.Items.Add(departamento.VerRegistro(i).VerDetalle());
             }
         }
     }

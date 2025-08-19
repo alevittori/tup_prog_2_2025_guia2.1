@@ -29,6 +29,8 @@ namespace Ejercicio1.Models
 
             RegistroVehiculo unRegistro = new RegistroVehiculo(this.nuevaPatente, elPropietario, this.nuevaSerie);
 
+            registros.Add(unRegistro);
+
             return unRegistro;
         }
 
@@ -48,32 +50,6 @@ namespace Ejercicio1.Models
                 patente += $"{rnd.Next(0, 10)}";
             }
             
-
-           
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            nuevaSerie = 
-
-
             return patente;
         }
         int GenerarSerie()
@@ -90,14 +66,19 @@ namespace Ejercicio1.Models
         }
 
         //ver como devolver el registro del arraylist
-        /*public RegistroVehiculo VerRegistro(int indice)
+        public RegistroVehiculo VerRegistro(int indice)
         {
+            
             if (indice >= 0 && indice < registros.Count)
             {
-                RegistroVehiculo encontrado = RegistroVehiculo(registros.IndexOf(indice));
+                if (registros[indice] is RegistroVehiculo registro) // por si adentro del arrayList no contiene un tipo RegistroVehicular
+                {
+                    return registro; 
+
+                }
             }
-            return RegistroVehiculo(registros[indice]);
+            return  null;
         }
-        */
+        //
     }
 }

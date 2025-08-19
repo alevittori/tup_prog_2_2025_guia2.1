@@ -31,9 +31,9 @@
             this.lBoxDatosRegistro = new System.Windows.Forms.ListBox();
             this.lBoxListado = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnCargarPersona = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
+            this.btnCargarPersona = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnListarRegistros = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -70,16 +70,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Registro";
             // 
-            // groupBox2
+            // btnRegistrar
             // 
-            this.groupBox2.Controls.Add(this.btnListarRegistros);
-            this.groupBox2.Controls.Add(this.lBoxListado);
-            this.groupBox2.Location = new System.Drawing.Point(26, 274);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(729, 233);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Listado de Registros";
+            this.btnRegistrar.Location = new System.Drawing.Point(528, 136);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(195, 62);
+            this.btnRegistrar.TabIndex = 2;
+            this.btnRegistrar.Text = "Registrar";
+            this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // btnCargarPersona
             // 
@@ -91,15 +90,16 @@
             this.btnCargarPersona.UseVisualStyleBackColor = true;
             this.btnCargarPersona.Click += new System.EventHandler(this.btnCargarPersona_Click);
             // 
-            // btnRegistrar
+            // groupBox2
             // 
-            this.btnRegistrar.Location = new System.Drawing.Point(528, 136);
-            this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(195, 62);
-            this.btnRegistrar.TabIndex = 2;
-            this.btnRegistrar.Text = "Registrar";
-            this.btnRegistrar.UseVisualStyleBackColor = true;
-            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
+            this.groupBox2.Controls.Add(this.btnListarRegistros);
+            this.groupBox2.Controls.Add(this.lBoxListado);
+            this.groupBox2.Location = new System.Drawing.Point(26, 274);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(729, 233);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Listado de Registros";
             // 
             // btnListarRegistros
             // 
@@ -109,6 +109,7 @@
             this.btnListarRegistros.TabIndex = 3;
             this.btnListarRegistros.Text = "Listar Registros";
             this.btnListarRegistros.UseVisualStyleBackColor = true;
+            this.btnListarRegistros.Click += new System.EventHandler(this.btnListarRegistros_Click);
             // 
             // btnSalir
             // 
