@@ -13,13 +13,29 @@ namespace Ejercicio2.Models
 
         public int AñoActual { get; set; }
 
+        int añoInicioContrato = 2020;
 
-        public Empleado RegistrarEmpleado(string apell, string nombre, int dni)
+        public Empleado RegistrarEmpleado(string apell, string nombre)
         {
-            return null;
+            Empleado nuevo = new Empleado(apell, nombre, añoInicioContrato);
+            liquidaciones.Add(nuevo);
+            return nuevo;
         }
 
-        public void GenerarLiquidaciones(int mes, int año) { }
+        public void GenerarLiquidaciones(int mes, int año) {
+
+            Liquidacion nuevaLiquidacion;
+            Empleado empleado;
+            foreach(var item in liquidaciones)
+            {
+                if(item is Empleado)
+                {
+                    empleado = (Empleado)item;
+                    nuevaLiquidacion = new Liquidacion(empleado, 2025, 9, 4, 5);
+                }
+            }
+
+        }
 
         public ArrayList ListarLiquidaciones(int mes, int año,  ref int cantidad) { return null; }
 
