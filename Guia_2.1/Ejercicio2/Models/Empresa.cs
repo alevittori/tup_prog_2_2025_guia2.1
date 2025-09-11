@@ -15,9 +15,9 @@ namespace Ejercicio2.Models
 
         int añoInicioContrato = 2020;
 
-        public Empleado RegistrarEmpleado(string apell, string nombre)
+        public Empleado RegistrarEmpleado(string apell, string nombre, int dni)
         {
-            Empleado nuevo = new Empleado(apell, nombre, añoInicioContrato);
+            Empleado nuevo = new Empleado(apell, nombre,dni, añoInicioContrato);
             liquidaciones.Add(nuevo);
             return nuevo;
         }
@@ -30,18 +30,71 @@ namespace Ejercicio2.Models
             {
                 if(item is Empleado)
                 {
-                    empleado = (Empleado)item;
+                    empleado = item as Empleado;
                     nuevaLiquidacion = new Liquidacion(empleado, 2025, 9, 4, 5);
                 }
             }
 
         }
 
-        public ArrayList ListarLiquidaciones(int mes, int año,  ref int cantidad) { return null; }
+        public ArrayList ListarLiquidaciones( int año, int mes /*, ref int cantidad*/)
+        {
+            ArrayList soloLiquidaciones = new ArrayList();
 
-        public double VerMontoLiquidacionTotal(int mes , int año) {  return 0; }
+            foreach(var item in liquidaciones)
+            {
+                if( item is Liquidacion)
+                {
+                    Liquidacion l = item as Liquidacion;
+                    if(l.Mes == mes && l.Año == año) { soloLiquidaciones.Add(l); }
+                }
+            }
 
-        public string MostrarReciboSueldo(int año, int mes , int dni) { return null; }
+            return soloLiquidaciones;
+        
+        }
+
+        public double VerMontoLiquidacionTotal(int mes , int año) 
+        {
+            double total = 0;
+            ArrayList liquidaciones = ListarLiquidaciones(año, mes);
+            foreach(Liquidacion l in liquidaciones)
+            {
+                total += l.ACobrar;
+            }
+            return total; 
+        }
+
+        public List<string> MostrarTodosReciboSueldo(int año, int mes  /*, int dni*/) 
+        { 
+            List<string> mostrar = new List<string>();
+
+            foreach(var item in liquidaciones)
+            {
+                if(item is Liquidacion)
+                {
+                    Liquidacion li = item as Liquidacion;
+                    if(li.Año == año && li.Mes == mes  ) { mostrar.Add(li.VerImpreso()); }
+
+                }
+            }
+            return mostrar; 
+        }
+
+        public string MostrarReciboSueldoPorDNI(int dni, int año, int mes)
+        {
+            Liquidacion l;
+            foreach(var item in liquidaciones)
+            {
+                if(item is Liquidacion)
+                {
+                    l = item as Liquidacion;
+                    if(l.Año== año && l.Mes == mes && l.Empleado.DNI == dni) {  return l.VerImpreso(); } 
+
+                }
+            }
+            return "No se encontro Empleado o Recibo";
+        }
 
 
     }

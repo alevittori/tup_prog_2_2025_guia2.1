@@ -28,56 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.btnRegistrar = new System.Windows.Forms.Button();
+            this.btnLiquidar = new System.Windows.Forms.Button();
+            this.btnMostrar = new System.Windows.Forms.Button();
+            this.lbDetalle = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
-            // button1
+            // btnRegistrar
             // 
-            this.button1.Location = new System.Drawing.Point(140, 34);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(127, 49);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Registrar Empleado";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Location = new System.Drawing.Point(140, 34);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(127, 49);
+            this.btnRegistrar.TabIndex = 0;
+            this.btnRegistrar.Text = "Registrar Empleado";
+            this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btnLiquidar
             // 
-            this.button2.Location = new System.Drawing.Point(347, 34);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(127, 49);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Generar Liquidaciones";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnLiquidar.Location = new System.Drawing.Point(347, 34);
+            this.btnLiquidar.Name = "btnLiquidar";
+            this.btnLiquidar.Size = new System.Drawing.Size(127, 49);
+            this.btnLiquidar.TabIndex = 1;
+            this.btnLiquidar.Text = "Generar Liquidaciones";
+            this.btnLiquidar.UseVisualStyleBackColor = true;
+            this.btnLiquidar.Click += new System.EventHandler(this.btnLiquidar_Click);
             // 
-            // button3
+            // btnMostrar
             // 
-            this.button3.Location = new System.Drawing.Point(554, 34);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(127, 49);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Mostrar Liquidaciones";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnMostrar.Location = new System.Drawing.Point(554, 34);
+            this.btnMostrar.Name = "btnMostrar";
+            this.btnMostrar.Size = new System.Drawing.Size(127, 49);
+            this.btnMostrar.TabIndex = 2;
+            this.btnMostrar.Text = "Mostrar Liquidaciones";
+            this.btnMostrar.UseVisualStyleBackColor = true;
+            this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
             // 
-            // listBox1
+            // lbDetalle
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(33, 103);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(740, 329);
-            this.listBox1.TabIndex = 3;
+            this.lbDetalle.FormattingEnabled = true;
+            this.lbDetalle.Location = new System.Drawing.Point(33, 103);
+            this.lbDetalle.Name = "lbDetalle";
+            this.lbDetalle.Size = new System.Drawing.Size(740, 329);
+            this.lbDetalle.TabIndex = 3;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.lbDetalle);
+            this.Controls.Add(this.btnMostrar);
+            this.Controls.Add(this.btnLiquidar);
+            this.Controls.Add(this.btnRegistrar);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -86,10 +89,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button btnRegistrar;
+        private System.Windows.Forms.Button btnLiquidar;
+        private System.Windows.Forms.Button btnMostrar;
+        private System.Windows.Forms.ListBox lbDetalle;
     }
 }
 

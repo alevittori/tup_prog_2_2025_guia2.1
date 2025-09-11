@@ -16,5 +16,27 @@ namespace Ejercicio2
         {
             InitializeComponent();
         }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {   /*
+            if(string.IsNullOrEmpty(tbNombre.Text)) { MessageBox.Show("Completar NOmbre "); btnAceptar.DialogResult = DialogResult.Cancel ; }
+            if(string.IsNullOrEmpty(tbApellido.Text)) { MessageBox.Show("Completar Apellido "); btnAceptar.DialogResult = DialogResult.Cancel; }
+            if (string.IsNullOrEmpty(tbDNI.Text)) { MessageBox.Show("Completar DNI"); btnAceptar.DialogResult = DialogResult.Cancel; }
+            */
+        }
+
+        private void tbDNI_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbDNI_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verifica si la tecla presionada es un dígito o un carácter de control (como Backspace, Delete, Enter)
+            if (!char.IsDigit(e.KeyChar) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Enter))
+            {
+                e.Handled = true; // Evita que se escriba el carácter
+            }
+        }
     }
 }

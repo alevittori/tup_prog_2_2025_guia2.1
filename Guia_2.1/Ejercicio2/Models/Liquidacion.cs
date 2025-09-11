@@ -139,7 +139,7 @@ namespace Ejercicio2.Models
                 Ttotales                    {Neto}                              
 ----------------------------------------------------------------------------------------
                                             A Cobrar                {ACobrar}:f2 ";
-            return ""; 
+            return resumen; 
         
         
         }

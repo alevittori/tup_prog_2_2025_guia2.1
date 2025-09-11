@@ -34,6 +34,8 @@
             this.tbNombre = new System.Windows.Forms.TextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.tbDNI = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -48,7 +50,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(48, 95);
+            this.label2.Location = new System.Drawing.Point(48, 75);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 1;
@@ -63,7 +65,7 @@
             // 
             // tbNombre
             // 
-            this.tbNombre.Location = new System.Drawing.Point(130, 91);
+            this.tbNombre.Location = new System.Drawing.Point(130, 71);
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(100, 20);
             this.tbNombre.TabIndex = 3;
@@ -77,6 +79,7 @@
             this.btnAceptar.TabIndex = 4;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancel
             // 
@@ -88,11 +91,31 @@
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
+            // tbDNI
+            // 
+            this.tbDNI.Location = new System.Drawing.Point(129, 109);
+            this.tbDNI.Name = "tbDNI";
+            this.tbDNI.Size = new System.Drawing.Size(100, 20);
+            this.tbDNI.TabIndex = 7;
+            this.tbDNI.TextChanged += new System.EventHandler(this.tbDNI_TextChanged);
+            this.tbDNI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDNI_KeyPress);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(47, 113);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(26, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "DNI";
+            // 
             // FCargaEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(297, 228);
+            this.Controls.Add(this.tbDNI);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.tbNombre);
@@ -116,5 +139,7 @@
         private System.Windows.Forms.Button btnCancel;
         public System.Windows.Forms.TextBox tbApellido;
         public System.Windows.Forms.TextBox tbNombre;
+        public System.Windows.Forms.TextBox tbDNI;
+        private System.Windows.Forms.Label label3;
     }
 }
