@@ -107,8 +107,8 @@ namespace Ejercicio2.Models
         {
             //El monto base en la liquidación se tomará del empleado en el momento de construcción de la liquidación
             Empleado = empleado;
-
-            MontoBasico = 4000;
+            empleado.MontoBasicoNominal = 4000;
+            //MontoBasico = 4000;
             PorcObraSocial = 0.03;
             PorcJubilado = 0.18;
             PorcGremiales = 0.015;
@@ -122,23 +122,27 @@ namespace Ejercicio2.Models
 
         }
 
-        public string VerImpreso()
+        public List<string> VerImpreso()
         {
-            string resumen = $@" Empleado {Empleado.Nombre}, {Empleado.Apellido}.
-----------------------------------------------------------------------------------------
-                Concepto                Haberes             Descuentos              
-                Básico                  {MontoBasico}                               
-                Antiguedad              {MontoAntiguedad}               
-                Extras al 50%           {MontoExtras50}                             
-                Extras al 100%          {MontoExtras100}                                
-                Obra Social                                 {MontoObraSocial}               
-                Jubilacion                                   {MontoJubilado}
-                Ap. Gremiales                               {MontoGremial}              
-                Productividad           {Productividad}                             
-----------------------------------------------------------------------------------------
-                Ttotales                    {Neto}                              
-----------------------------------------------------------------------------------------
-                                            A Cobrar                {ACobrar}:f2 ";
+            List<string> resumen = new List<string>();
+            resumen.Add($"Empleado {Empleado.Nombre}, {Empleado.Apellido}.");
+            resumen.Add($"----------------------------------------------------------------------------------------");
+            resumen.Add($"Concepto                Haberes             Descuentos ");
+            resumen.Add($"Básico                  {MontoBasico} ");
+            resumen.Add($"Antiguedad              {MontoAntiguedad}");
+            resumen.Add($"Extras al 50%           {MontoExtras50} ");
+            resumen.Add($"Extras al 100%          {MontoExtras100}");
+            resumen.Add($"Obra Social                                 {MontoObraSocial} ");
+            resumen.Add($"Jubilacion                                   {MontoJubilado}");
+            resumen.Add($"Ap. Gremiales                               {MontoGremial}   ");
+            resumen.Add($" Productividad           {Productividad}   ");
+            resumen.Add($"");
+            resumen.Add($"----------------------------------------------------------------------------------------");
+            resumen.Add($" Ttotales                    {Neto}   ");
+            resumen.Add($"----------------------------------------------------------------------------------------");
+            resumen.Add($"  A Cobrar                {ACobrar}");
+
+                                          
             return resumen; 
         
         

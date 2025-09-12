@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Ejercicio2.Models
 {
     internal class Empresa
     {
         ArrayList liquidaciones = new ArrayList();
+        ArrayList empleados = new ArrayList();
 
         public int AñoActual { get; set; }
 
@@ -18,7 +20,7 @@ namespace Ejercicio2.Models
         public Empleado RegistrarEmpleado(string apell, string nombre, int dni)
         {
             Empleado nuevo = new Empleado(apell, nombre,dni, añoInicioContrato);
-            liquidaciones.Add(nuevo);
+            empleados.Add(nuevo);
             return nuevo;
         }
 
@@ -26,12 +28,15 @@ namespace Ejercicio2.Models
 
             Liquidacion nuevaLiquidacion;
             Empleado empleado;
-            foreach(var item in liquidaciones)
+            foreach(Empleado e in empleados)
             {
-                if(item is Empleado)
+                if(e is Empleado)
                 {
-                    empleado = item as Empleado;
-                    nuevaLiquidacion = new Liquidacion(empleado, 2025, 9, 4, 5);
+                    empleado = e as Empleado;
+                    nuevaLiquidacion = new Liquidacion(empleado, año, mes, 4, 5);
+                    //no estaba guardando la liquidacion
+
+                    liquidaciones.Add(nuevaLiquidacion);
                 }
             }
 
@@ -41,12 +46,12 @@ namespace Ejercicio2.Models
         {
             ArrayList soloLiquidaciones = new ArrayList();
 
-            foreach(var item in liquidaciones)
+            foreach(Liquidacion l in liquidaciones)
             {
-                if( item is Liquidacion)
+                if( l is Liquidacion)
                 {
-                    Liquidacion l = item as Liquidacion;
-                    if(l.Mes == mes && l.Año == año) { soloLiquidaciones.Add(l); }
+                    Liquidacion li = l as Liquidacion;
+                    if(li.Mes == mes && li.Año == año) { soloLiquidaciones.Add(l); }
                 }
             }
 
@@ -65,31 +70,38 @@ namespace Ejercicio2.Models
             return total; 
         }
 
-        public List<string> MostrarTodosReciboSueldo(int año, int mes  /*, int dni*/) 
-        { 
-            List<string> mostrar = new List<string>();
+        public void MostrarTodosReciboSueldo(int año, int mes, ListBox lista  /*, int dni*/) 
+        {
+           List<string> mostrar ;
 
-            foreach(var item in liquidaciones)
+            foreach(Liquidacion l in liquidaciones)
             {
-                if(item is Liquidacion)
+                if(l is Liquidacion)
                 {
-                    Liquidacion li = item as Liquidacion;
-                    if(li.Año == año && li.Mes == mes  ) { mostrar.Add(li.VerImpreso()); }
+                    Liquidacion li = l as Liquidacion;
+                    if(li.Año == año && li.Mes == mes  ) 
+                    {
+                        mostrar = li.VerImpreso();
+                        foreach(string s in mostrar)
+                        {
+                            lista.Items.Add(s);
+                        }
+                    }
 
                 }
             }
-            return mostrar; 
+            
         }
 
-        public string MostrarReciboSueldoPorDNI(int dni, int año, int mes)
+        public string MostrarReciboSueldoPorDNI(int dni, int año, int mes, ListBox lista)
         {
             Liquidacion l;
-            foreach(var item in liquidaciones)
+            foreach(Liquidacion li in liquidaciones)
             {
-                if(item is Liquidacion)
+                if(li is Liquidacion)
                 {
-                    l = item as Liquidacion;
-                    if(l.Año== año && l.Mes == mes && l.Empleado.DNI == dni) {  return l.VerImpreso(); } 
+                    l = li as Liquidacion;
+                    if(l.Año== año && l.Mes == mes && l.Empleado.DNI == dni) { lista.Items.Add( l.VerImpreso()); } 
 
                 }
             }

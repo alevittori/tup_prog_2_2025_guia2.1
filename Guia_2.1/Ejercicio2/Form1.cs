@@ -60,16 +60,28 @@ namespace Ejercicio2
 
         private void btnMostrar_Click(object sender, EventArgs e)
         {
-            List<string> lista = laEmpresa.MostrarTodosReciboSueldo(año, mes);
             lbDetalle.Items.Clear();
             lbDetalle.Items.Add($"Resibos pediodo {mes} / {año} ");
-            foreach(string s in lista)
-            {
-                lbDetalle.Items.Add(s);
-            }
-
+            laEmpresa.MostrarTodosReciboSueldo(año, mes, lbDetalle );
+           
             lbDetalle.Items.Add("-------------------------------------------------------");
             lbDetalle.Items.Add($"TOTAL A PAGAR                   {laEmpresa.VerMontoLiquidacionTotal(mes, año)}");
+            lbDetalle.Items.Add("     ");
+        }
+
+        private void btnPrueba_Click(object sender, EventArgs e)
+        {
+            Empleado juan = new Empleado("pepe", "juan", 33, 2020);
+            Liquidacion liquidar = new Liquidacion(juan, 2025, 7, 5, 5);
+
+            Empresa sistema = new Empresa();
+
+            sistema.GenerarLiquidaciones(7, 2025);
+            MessageBox.Show($"Monto {liquidar.ACobrar}");
+           
+            MessageBox.Show($"Monto {juan.MontoBasicoNominal }");
+            MessageBox.Show($"Recibo 33 {sistema.MostrarReciboSueldoPorDNI(33,2025,7, lbDetalle) }"); 
+            MessageBox.Show($"Monto {sistema.VerMontoLiquidacionTotal(7,2025) }");
         }
     }
 }
