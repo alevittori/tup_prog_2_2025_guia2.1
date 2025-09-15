@@ -83,5 +83,15 @@ namespace Ejercicio2
             MessageBox.Show($"Recibo 33 {sistema.MostrarReciboSueldoPorDNI(33,2025,7, lbDetalle) }"); 
             MessageBox.Show($"Monto {sistema.VerMontoLiquidacionTotal(7,2025) }");
         }
+
+        private void btnListar_Click(object sender, EventArgs e)
+        {
+            laEmpresa.listarEmpleados(lbDetalle);
+        }
+
+        private void btnListarLiquidacion_Click(object sender, EventArgs e)
+        {
+            laEmpresa.listarLiquidacion(lbDetalle);
+        }
     }
 }

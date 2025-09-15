@@ -10,7 +10,7 @@ namespace Ejercicio2.Models
 {
     internal class Empresa
     {
-        ArrayList liquidaciones = new ArrayList();
+        List<Liquidacion> liquidaciones = new List<Liquidacion> { };
         ArrayList empleados = new ArrayList();
 
         public int AñoActual { get; set; }
@@ -24,20 +24,46 @@ namespace Ejercicio2.Models
             return nuevo;
         }
 
+        #region PARA PRUEBA
+        public void listarEmpleados ( ListBox lista)
+        {
+            lista.Items.Clear();
+            foreach (Empleado e in empleados)
+            {
+                lista.Items.Add(e.ToString());
+            }
+        }
+        public void listarLiquidacion(ListBox lista)
+        {
+            lista.Items.Clear();
+            foreach (Liquidacion l in liquidaciones)
+            {
+                lista.Items.Add(l.ToString());
+            }
+        }
+
+
+        #endregion
+
+        //para probar
+
         public void GenerarLiquidaciones(int mes, int año) {
 
             Liquidacion nuevaLiquidacion;
             Empleado empleado;
+
             foreach(Empleado e in empleados)
             {
-                if(e is Empleado)
+                empleado = e as Empleado;
+                bool yaLiquido = liquidaciones.Exists(l => l.Empleado == empleado);
+               // MessageBox.Show($"Ya liquido ese epleado?  {yaLiquido}");
+                if(! yaLiquido)
                 {
-                    empleado = e as Empleado;
                     nuevaLiquidacion = new Liquidacion(empleado, año, mes, 4, 5);
-                    //no estaba guardando la liquidacion
+                    liquidaciones.Add(nuevaLiquidacion); 
 
-                    liquidaciones.Add(nuevaLiquidacion);
                 }
+
             }
 
         }

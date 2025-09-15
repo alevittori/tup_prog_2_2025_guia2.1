@@ -26,6 +26,9 @@ namespace Ejercicio2.Models
 
         }
 
-
+        public override string ToString()
+        {
+            return $"{ApellidoNombre} - DNI {DNI}";
+        }
     }
 }

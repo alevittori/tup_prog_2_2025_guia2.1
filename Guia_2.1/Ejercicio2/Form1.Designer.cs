@@ -32,7 +32,8 @@
             this.btnLiquidar = new System.Windows.Forms.Button();
             this.btnMostrar = new System.Windows.Forms.Button();
             this.lbDetalle = new System.Windows.Forms.ListBox();
-            this.btnPrueba = new System.Windows.Forms.Button();
+            this.btnListar = new System.Windows.Forms.Button();
+            this.btnListarLiquidacion = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnRegistrar
@@ -73,22 +74,33 @@
             this.lbDetalle.Size = new System.Drawing.Size(1309, 329);
             this.lbDetalle.TabIndex = 3;
             // 
-            // btnPrueba
+            // btnListar
             // 
-            this.btnPrueba.Location = new System.Drawing.Point(44, 34);
-            this.btnPrueba.Name = "btnPrueba";
-            this.btnPrueba.Size = new System.Drawing.Size(75, 49);
-            this.btnPrueba.TabIndex = 4;
-            this.btnPrueba.Text = "button1";
-            this.btnPrueba.UseVisualStyleBackColor = true;
-            this.btnPrueba.Click += new System.EventHandler(this.btnPrueba_Click);
+            this.btnListar.Location = new System.Drawing.Point(1073, 34);
+            this.btnListar.Name = "btnListar";
+            this.btnListar.Size = new System.Drawing.Size(95, 49);
+            this.btnListar.TabIndex = 5;
+            this.btnListar.Text = "listar empleados";
+            this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
+            // 
+            // btnListarLiquidacion
+            // 
+            this.btnListarLiquidacion.Location = new System.Drawing.Point(1187, 34);
+            this.btnListarLiquidacion.Name = "btnListarLiquidacion";
+            this.btnListarLiquidacion.Size = new System.Drawing.Size(95, 49);
+            this.btnListarLiquidacion.TabIndex = 6;
+            this.btnListarLiquidacion.Text = "listar liquidaciones";
+            this.btnListarLiquidacion.UseVisualStyleBackColor = true;
+            this.btnListarLiquidacion.Click += new System.EventHandler(this.btnListarLiquidacion_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1354, 450);
-            this.Controls.Add(this.btnPrueba);
+            this.Controls.Add(this.btnListarLiquidacion);
+            this.Controls.Add(this.btnListar);
             this.Controls.Add(this.lbDetalle);
             this.Controls.Add(this.btnMostrar);
             this.Controls.Add(this.btnLiquidar);
@@ -105,7 +117,8 @@
         private System.Windows.Forms.Button btnLiquidar;
         private System.Windows.Forms.Button btnMostrar;
         private System.Windows.Forms.ListBox lbDetalle;
-        private System.Windows.Forms.Button btnPrueba;
+        private System.Windows.Forms.Button btnListar;
+        private System.Windows.Forms.Button btnListarLiquidacion;
     }
 }
 
